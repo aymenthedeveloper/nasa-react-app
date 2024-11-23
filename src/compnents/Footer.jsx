@@ -10,7 +10,6 @@ export default function Footer(props) {
         <h2>{data?.title}</h2>
       </div>
       <button onClick={toggleModal}>
-        <span className='description'>toggle side bar</span>
         <i className="fa-solid fa-circle-info"></i>
       </button>
 
