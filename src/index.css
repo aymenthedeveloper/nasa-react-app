@@ -73,6 +73,9 @@ footer button {
   transition-duration: 200ms;
   cursor: pointer;
 }
+footer button .description{
+  display: none;
+}
 
 footer button i {
   font-size: 1.3rem;

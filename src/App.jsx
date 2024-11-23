@@ -38,7 +38,7 @@ function App() {
     setShowModal(!showModal)
   }
   return (
-    <>
+    <main>
       {data? (<Main data={data}/>): (
         <div className="loadingState">
           <i className="fa-solid fa-gear"></i>
@@ -46,7 +46,7 @@ function App() {
       )}
       {showModal && <Sidebar data={data} toggleModal={toggleModal} />}
       {data && <Footer toggleModal={toggleModal} data={data}/>}
-    </>
+    </main>
   )
 }
 
