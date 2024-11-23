@@ -8,6 +8,18 @@ function App() {
   const [showModal, setShowModal] = useState(false)
 
   async function fetchData(){
+    const today = new Date().toDateString()
+    const localKey = `nasa-${today}`
+    let localData = localStorage.getItem(localKey);
+    if (localData){
+      localData = JSON.parse(localData);
+      console.log("from local storage");
+      console.log(localData);
+      setData(localData)
+      return;
+    }
+    localStorage.clear();
+    
     const KEY = import.meta.env.VITE_API_KEY;
     const url = `https://api.nasa.gov/planetary/apod?api_key=${KEY}`;
     try {
@@ -26,18 +38,6 @@ function App() {
   }
 
   useEffect(()=>{
-    // const today = new Date().toDateString()
-    // const localKey = `nasa-${today}`
-    // let localData = localStorage.getItem(localKey);
-    // if (localData){
-    //   localData = JSON.parse(localData);
-    //   console.log("from local storage");
-    //   console.log(localData);
-    //   setData(localData)
-    //   return;
-    // }
-    // localStorage.clear();
-    
     fetchData();
   }, [])
 
